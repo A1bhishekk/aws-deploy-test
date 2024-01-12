@@ -12,6 +12,11 @@ const app = express();
 // database connection
 connectDB();
 
+// middleware
+app.use(express.json());
+
+
+
 
 app.get('/', (req, res) => {
    
@@ -25,6 +30,10 @@ app.get('/', (req, res) => {
 // user route
 import userRoute from './router/userRoute.js';
 app.use('/api/v1', userRoute);
+
+// url route
+import urlRoute from './router/urlRoutes.js';
+app.use('/api/v1', urlRoute);
 
 
 const port = process.env.PORT || 8000;
