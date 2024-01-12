@@ -1,6 +1,20 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import { connect } from 'mongoose';
+import connectDB from './db/db.js';
 
+
+
+
+
+
+dotenv.config();
 const app = express();
+
+// database connection
+connectDB();
+
+
 
 app.get('/', (req, res) => {
     res.status(200).json({
